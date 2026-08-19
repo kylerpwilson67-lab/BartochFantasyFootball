@@ -76,7 +76,7 @@ html_content = """
         h1 { 
             margin: 0 0 6px 0; 
             color: #0f172a; 
-            font-size: 10em; /* MASSIVE FONT SIZE FOR TESTING */
+            font-size: 4em; /* MASSIVE FONT SIZE FOR TESTING */
             font-weight: 900;
             letter-spacing: -1px;
         }
