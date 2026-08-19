@@ -76,8 +76,9 @@ html_content = """
         h1 { 
             margin: 0 0 6px 0; 
             color: #0f172a; 
-            font-size: 2.4em;
-            font-weight: 800;
+            font-size: 100em; /* MASSIVE FONT SIZE FOR TESTING */
+            font-weight: 900;
+            letter-spacing: -1px;
         }
         .subtitle {
             color: #64748b;
@@ -215,14 +216,12 @@ html_content = """
     </style>
     
     <script>
-        // UPDATED: Closes all other dropdowns before toggling the clicked one
         function toggleDropdown(element) {
             var currentWrapper = element.closest('.card-wrapper');
             var currentDropdown = currentWrapper.querySelector('.dropdown-area');
             var currentArrow = element.querySelector('.arrow');
             var isCurrentlyOpen = (currentDropdown.style.display === "block");
 
-            // Close all open dropdowns across all team cards
             document.querySelectorAll('.card-wrapper').forEach(function(wrapper) {
                 var dropdown = wrapper.querySelector('.dropdown-area');
                 var arrow = wrapper.querySelector('.arrow');
@@ -230,7 +229,6 @@ html_content = """
                 if (arrow) arrow.innerHTML = "▼";
             });
 
-            // If it wasn't open before, open it now
             if (!isCurrentlyOpen) {
                 currentDropdown.style.display = "block";
                 currentArrow.innerHTML = "▲";
@@ -246,7 +244,6 @@ html_content = """
         }
 
         window.onload = function() {
-            // Live Countdown Timer
             var baseKickoffDate = new Date("2026-09-13T13:00:00-04:00").getTime();
             setInterval(function() {
                 var now = new Date().getTime();
@@ -268,7 +265,6 @@ html_content = """
                 });
             }, 1000);
 
-            // Fetch Live ESPN NFL News
             fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/news')
                 .then(response => response.json())
                 .then(data => {
